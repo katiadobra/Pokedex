@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pokedex</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<main>
+  <h1 class="page-title">Pokedex</h1>
+  <div class="wrap">
+    <section class="col col--wide">
+
+      <template id="pokemon-template" style="display: none">
+        <article class="pokemon" tabindex="1">
+          <div class="pokemon__img">
+            <img src="http://via.placeholder.com/300x200" alt="">
+          </div>
+          <div class="pokemon__name"></div>
+          <div class="pokemon__idx"></div>
+          <!--<ul class="types">
+            <li class="type type--glass">
+              <span class="type__text">
+                Glass</span>
+            </li>
+            <li class="type type--poison">
+              <span class="type__text">
+                Poison</span>
+            </li>
+            <li class="type type--fire">
+              <span class="type__text">
+                Fire</span>
+            </li>
+            <li class="type type--electric">
+              <span class="type__text">
+                Electric</span>
+            </li>
+          </ul>-->
+        </article>
+      </template>
+
+      <div class="pokemons-list holder"></div>
+      <button id="load-more" class="btn">Load more</button>
+    </section>
+
+    <section class="col col--info">
+      <div id="details" class="descr" hidden>
+        <div class="descr__holder">
+          <div class="descr__img">
+            <img src="http://via.placeholder.com/300x200" alt="">
+          </div>
+          <div class="descr__name"></div>
+          <table class="descr__table">
+            <tr>
+              <td>Type</td>
+              <td><ul class="descr__type types">
+
+              </ul></td>
+            </tr>
+            <tr>
+              <td>Attack</td>
+              <td><span class="descr__attack"></span></td>
+            </tr>
+            <tr>
+              <td>Defense</td>
+              <td><span class="descr__defense"></span></td>
+            </tr>
+            <tr>
+              <td>HP</td>
+              <td><span class="descr__hp"></span></td>
+            </tr>
+            <tr>
+              <td>SP Attack</td>
+              <td><span class="descr__sp-attack"></span></td>
+            </tr>
+            <tr>
+              <td>SP Defense</td>
+              <td><span class="descr__sp-defense"></span></td>
+            </tr>
+            <tr>
+              <td>Speed</td>
+              <td><span class="descr__speed"></span></td>
+            </tr>
+            <tr>
+              <td>Weight</td>
+              <td><span class="descr__weight"></span></td>
+            </tr>
+            <tr>
+              <td>Total moves</td>
+              <td><span class="descr__total-moves"></span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
