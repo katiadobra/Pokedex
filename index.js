@@ -7,4 +7,6 @@ app.get('*',function (req,res) {
   res.sendFile('./index.html');
 });
 
-app.listen(5000);
+var PORT = process.env.PORT || 5000;
+
+app.listen(PORT);
