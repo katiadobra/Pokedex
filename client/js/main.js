@@ -68,7 +68,7 @@
     detailsContainer.querySelector('.descr__total-moves').textContent = data.moves.length;
 
     detailsContainer.querySelector('.descr__type').textContent = '';
-    var typesArr = [];
+
     data.types.forEach(function(it) {
       var li = document.createElement('li');
       li.textContent = it.type.name;
@@ -76,6 +76,7 @@
     });
 
     detailsContainer.removeAttribute('hidden');
+    setScrollEnabled();
   };
 
   var hideDetails = function() {
@@ -159,5 +160,21 @@
   }
 
   getPokemons(POKEMONS_LOAD_URL, cb);
+
+
+  /**
+   * Sticky Details block
+   */
+  var setScrollEnabled = function() {
+    window.addEventListener('scroll', function() {
+      var GAP = 300;
+
+      if (document.body.scrollTop + document.documentElement.scrollTop > GAP) {
+        detailsContainer.classList.add('descr--sticky');
+      } else {
+        detailsContainer.classList.remove('descr--sticky');
+      }
+    });
+  };
 
 })();

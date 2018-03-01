@@ -1,4 +1,7 @@
 .page-title {
+  padding: 20px;
+  margin-bottom: 50px;
+  font-size: 45px;
   text-align: center;
 }
 
@@ -6,6 +9,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 0 20px;
 }
 
 .col {
@@ -127,8 +131,6 @@
 .descr--sticky {
   position: fixed;
   top: 20px;
-  right: 20px;
-  width: 300px;
 }
 .descr__img {
   height: 200px;
