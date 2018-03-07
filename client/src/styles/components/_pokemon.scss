@@ -1,0 +1,85 @@
+.pokemon {
+  position: relative;
+  width: 200px;
+  min-height: 300px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+  background-color: #fff;
+
+  &:hover {
+    transition: all .2s linear;
+    box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+    cursor: pointer;
+
+    .pokemon__name {
+      color: rgb(0, 188, 212);
+    }
+
+    img {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+
+  &__img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      width: auto;
+      height: 100%;
+      margin: 0;
+    }
+  }
+
+  &__name {
+    display: block;
+    margin-bottom: 10px;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  &__idx {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #dadada;
+  }
+}
+
+.types {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.type {
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+  background-color: currentColor;
+
+  &--glass { color: rgba(139, 195, 74, .5);}
+  &--poison { color: rgba(128, 0, 128, 0.5); }
+  &--fire { color: rgba(244, 67, 54, 0.5); }
+  &--electric { color: rgba(255, 193, 7, .5); }
+
+  &__text {
+    display: block;
+    padding: 3px 10px;
+    color: #000;
+    text-decoration: none;
+  }
+}
