@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Jarvis = require('webpack-jarvis');
 
 module.exports = {
   // mode: "development || "production",
@@ -25,24 +26,25 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        include: [
-          path.resolve(__dirname, 'src/styles')
-        ],
+        include: [path.resolve(__dirname, 'src/styles')],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              minimize: true
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+                minimize: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+                import: true
+              }
             }
-          }, {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              import: true
-            }
-          }]
+          ]
         })
       }
     ]
@@ -55,6 +57,9 @@ module.exports = {
     new ExtractTextPlugin({
       filename: 'style.css',
       disable: false
+    }),
+    new Jarvis({
+      port: 1337
     })
   ]
 };
