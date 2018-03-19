@@ -1,6 +1,5 @@
-'use strict';
-
 (function() {
+  'use strict';
   var pokemonsContainer = document.querySelector('.pokemons-list');
   var templateElement = document.querySelector('#pokemon-template');
   var detailsContainer = document.querySelector('#details');
@@ -10,7 +9,8 @@
   var id = 0;
 
   var POKEMONS_LOAD_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=10';
-  var POKEMON_IMAGE_BASE_URL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+  var POKEMON_IMAGE_BASE_URL =
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
 
   if ('content' in templateElement) {
     elementToClone = templateElement.content.querySelector('.pokemon');
@@ -38,7 +38,9 @@
 
     var image = new Image();
     image.onload = function(evt) {
-      element.querySelector('.pokemon__img img').setAttribute('src', evt.target.src);
+      element
+        .querySelector('.pokemon__img img')
+        .setAttribute('src', evt.target.src);
     };
     image.onerror = function() {
       element.classList.add('no-photo');
@@ -54,18 +56,28 @@
    * @param data {Object}
    */
   var showDetails = function(data) {
-    detailsContainer.querySelector('.descr__img img').setAttribute('src', data.sprites.front_default);
-    detailsContainer.querySelector('.descr__name').textContent = data.name + ' #' + data.id;
+    detailsContainer
+      .querySelector('.descr__img img')
+      .setAttribute('src', data.sprites.front_default);
+    detailsContainer.querySelector('.descr__name').textContent =
+      data.name + ' #' + data.id;
 
-    detailsContainer.querySelector('.descr__speed').textContent = data.stats[0].base_stat;
-    detailsContainer.querySelector('.descr__sp-defense').textContent = data.stats[1].base_stat;
-    detailsContainer.querySelector('.descr__sp-attack').textContent = data.stats[2].base_stat;
-    detailsContainer.querySelector('.descr__defense').textContent = data.stats[3].base_stat;
-    detailsContainer.querySelector('.descr__attack').textContent = data.stats[4].base_stat;
-    detailsContainer.querySelector('.descr__hp').textContent = data.stats[5].base_stat;
+    detailsContainer.querySelector('.descr__speed').textContent =
+      data.stats[0].base_stat;
+    detailsContainer.querySelector('.descr__sp-defense').textContent =
+      data.stats[1].base_stat;
+    detailsContainer.querySelector('.descr__sp-attack').textContent =
+      data.stats[2].base_stat;
+    detailsContainer.querySelector('.descr__defense').textContent =
+      data.stats[3].base_stat;
+    detailsContainer.querySelector('.descr__attack').textContent =
+      data.stats[4].base_stat;
+    detailsContainer.querySelector('.descr__hp').textContent =
+      data.stats[5].base_stat;
 
     detailsContainer.querySelector('.descr__weight').textContent = data.weight;
-    detailsContainer.querySelector('.descr__total-moves').textContent = data.moves.length;
+    detailsContainer.querySelector('.descr__total-moves').textContent =
+      data.moves.length;
 
     detailsContainer.querySelector('.descr__type').textContent = '';
 
@@ -110,7 +122,7 @@
     var xhr = new XMLHttpRequest();
     xhr.onload = function(evt) {
       var loadedPokemon = JSON.parse(evt.target.response);
-      callback(loadedPokemon)
+      callback(loadedPokemon);
     };
     xhr.open('GET', url);
     xhr.send();
@@ -151,7 +163,7 @@
   var limit = 0;
 
   function renderNextPages() {
-    getPokemons(POKEMONS_LOAD_URL + '&offset=' + (++limit * 10), cb);
+    getPokemons(POKEMONS_LOAD_URL + '&offset=' + ++limit * 10, cb);
   }
 
   function setBtnEnabled() {
@@ -160,7 +172,6 @@
   }
 
   getPokemons(POKEMONS_LOAD_URL, cb);
-
 
   /**
    * Sticky Details block
@@ -176,5 +187,4 @@
       }
     });
   };
-
 })();

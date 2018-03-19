@@ -1,12 +1,14 @@
-var express = require('express');
-var app = express();
+const express = require('express');
 
-app.use(express.static('./client'));
+const app = express();
 
-app.get('*',function (req,res) {
-  res.sendFile('./index.html');
+app.use(express.static('./client/dist'));
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + 'index.html');
 });
 
-var PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log('Now you can open http://localhost:5000/');
+});
